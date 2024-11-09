@@ -1,0 +1,148 @@
+[
+  {
+    "name": "BoxProcess",
+    "file_directory": "box_process_data\\",
+    "file_names": [
+      "event_data_noise_4.csv"
+    ],
+    "labels": [
+      "Event"
+    ],
+    "attributes": [
+      {
+        "name": "eventId",
+        "columns": [
+          {
+            "name": "eventId",
+            "dtype": "string"
+          }
+        ],
+        "mandatory": true
+      },
+      {
+        "name": "activity",
+        "columns": [
+          {
+            "name": "activity"
+          }
+        ],
+        "mandatory": true
+      },
+      {
+        "name": "timestampVar",
+        "columns": [
+          {
+            "name": "timestampVar"
+          }
+        ],
+        "mandatory": true
+      },
+      {
+        "name": "boxId",
+        "columns": [
+          {
+            "name": "box"
+          }
+        ],
+        "mandatory": false
+      },
+      {
+        "name": "batchPositionId",
+        "columns": [
+          {
+            "name": "batchPosition"
+          }
+        ],
+        "mandatory": true
+      },
+      {
+        "name": "equipment",
+        "columns": [
+          {
+            "name": "equipment"
+          }
+        ],
+        "mandatory": true
+      },
+      {
+        "name": "timestamp",
+        "columns": [
+          {
+            "name": "timestamp"
+          }
+        ],
+        "datetime_object": {
+          "format": "d/M/y H:m:s",
+          "convert_to": "ISO_DATE_TIME"
+        },
+        "mandatory": false
+      }
+    ]
+  },
+  {
+    "name": "location",
+    "file_directory": "box_process_data\\",
+    "file_names": [
+      "location_records.csv"
+    ],
+    "labels": [
+      "Location"
+    ],
+    "attributes": [
+      {
+        "name": "name",
+        "columns": [
+          {
+            "name": "name",
+            "dtype": "str"
+          }
+        ],
+        "is_primary_key": true,
+        "mandatory": true
+      },
+      {
+        "name": "partOf",
+        "columns": [
+          {
+            "name": "partOf",
+            "dtype": "str"
+          }
+        ],
+        "mandatory": false
+      },
+      {
+        "name": "activity",
+        "columns": [
+          {
+            "name": "activity"
+          }
+        ],
+        "mandatory": true
+      }
+    ]
+  },
+  {
+    "name": "activity_types",
+    "file_directory": "box_process_data\\",
+    "file_names": [
+      "activity_records.csv"
+    ],
+    "labels": [
+      "EntityType"
+    ],
+    "attributes": [
+      {
+        "name": "name",
+        "columns": [
+          {
+            "name": "entityType",
+            "dtype": "str",
+            "mandatory": true
+          }
+        ],
+        "mandatory": true,
+        "is_primary_key": true
+      }
+    ]
+  }
+]

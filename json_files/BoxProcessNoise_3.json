@@ -1,0 +1,149 @@
+{
+  "name": "BoxProcess",
+  "version": "1.0.0",
+  "entities": [
+    {
+      "constructed_by_node": {
+        "node_label": "Event"
+      },
+      "type": "Box",
+      "labels": [
+        "Box"
+      ],
+      "primary_keys": [
+        "boxId"
+      ],
+      "entity_attributes": [
+        "boxId",
+        "batchPositionId"
+      ],
+      "df": true,
+      "include_label_in_df": true,
+      "corr": true,
+      "merge_duplicate_df": true
+    },
+    {
+      "constructed_by_node": {
+        "node_label": "Event"
+      },
+      "type": "BatchPosition",
+      "labels": [
+        "BatchPosition"
+      ],
+      "primary_keys": [
+        "batchPositionId"
+      ],
+      "entity_attributes": [
+        "batchPositionId"
+      ],
+      "df": false,
+      "include_label_in_df": true,
+      "corr": true,
+      "merge_duplicate_df": true
+    },
+    {
+      "constructed_by_node": {
+        "node_label": "Event"
+      },
+      "type": "Equipment",
+      "labels": [
+        "Equipment"
+      ],
+      "primary_keys": [
+        "equipment"
+      ],
+      "entity_attributes": [
+        "equipmentId"
+      ],
+      "df": true,
+      "include_label_in_df": true,
+      "corr": true,
+      "merge_duplicate_df": true
+    }
+  ],
+  "relations": [
+    {
+      "type": "AT",
+      "constructed_by_nodes": {
+        "from_node_label": "Location",
+        "to_node_label": "Activity",
+        "primary_key": "name",
+        "foreign_key": "activity",
+        "reversed": true
+      }
+    },
+    {
+      "type": "PART_OF",
+      "constructed_by_nodes": {
+        "from_node_label": "Location",
+        "to_node_label": "Location",
+        "primary_key": "name",
+        "foreign_key": "partOf"
+      }
+    },
+    {
+      "type": "LOADS",
+      "constructed_by_relations": {
+        "antecedents": [
+          "(a:Activity WHERE a.name = 'LoadAL' OR a.name = 'LoadFS' OR a.name = 'LoadSS')",
+          "(et:EntityType {name: 'Box'})"
+        ],
+        "consequent": "(a:Activity) - [:LOADS] -> (et:EntityType)"
+      }
+    },
+    {
+      "type": "UNLOADS",
+      "constructed_by_relations": {
+        "antecedents": [
+          "(a:Activity WHERE a.name = 'UnloadAL' OR a.name = 'UnloadFS' OR a.name = 'UnloadSS')",
+          "(et:EntityType {name: 'Box'})"
+        ],
+        "consequent": "(a:Activity) - [:UNLOADS] -> (et:EntityType)"
+      }
+    },
+    {
+      "type": "ACTS_ON",
+      "constructed_by_relations": {
+        "antecedents": [
+          "(a:Activity WHERE a.name = 'Fill' OR a.name = 'Seal' OR a.name = 'Open' OR a.name = 'Close')",
+          "(et:EntityType {name: 'Box'})"
+        ],
+        "consequent": "(a:Activity) - [:ACTS_ON] -> (et:EntityType)"
+      }
+    },
+    {
+      "type": "AT_POS",
+      "constructed_by_relations": {
+        "antecedents": [
+          "(e:Event) - [:CORR] -> (b:Box)",
+          "(e) - [:CORR] -> (bp:BatchPosition)"
+        ],
+        "consequent": "(b:Box) - [:AT_POS] -> (bp:BatchPosition)"
+      }
+    },
+    {
+      "type": "CORR",
+      "include_properties": false,
+      "constructed_by_relations": {
+        "antecedents": [
+          "(e:Event) - [:CORR] -> (b:Box)",
+          "(b) - [:AT_POS] -> (bp:BatchPosition)"
+        ],
+        "consequent": "(e:Event) - [:CORR] -> (bp:BatchPosition)"
+      }
+    }
+  ],
+  "classes": [
+    {
+      "label": "Activity",
+      "aggregate_from_nodes": "Event",
+      "class_identifiers": [
+        "activity"
+      ]
+    }
+  ],
+  "log": {
+    "include": false,
+    "has": true
+  }
+}

@@ -1,0 +1,6 @@
+dataclasses
+neo4j
+numpy
+pandas
+tabulate
+tqdm

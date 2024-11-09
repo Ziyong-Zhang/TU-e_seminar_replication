@@ -1,0 +1,21 @@
+idx,eventId,activity,timestamp,timestampVar,box,batchPosition,equipment,log
+0,e1,LoadAL,24/03/2023 10:00:00,t0,,,3012,Running Example
+1,e2,LoadFS,24/03/2023 10:01:00,t1,,x,3012,Running Example
+2,e3,Fill,24/03/2023 10:03:00,t2,,,3012,Running Example
+3,e4,UnloadFS,24/03/2023 10:07:00,t3,,x,3012,Running Example
+4,e5,LoadFS,24/03/2023 10:08:00,t4,,y,3012,Running Example
+5,e6,Fill,24/03/2023 10:12:00,t5,,,3012,Running Example
+6,e7,UnloadFS,24/03/2023 10:16:00,t6,,y,3012,Running Example
+7,e8,LoadFS,24/03/2023 10:17:00,t7,,z,3012,Running Example
+8,e9,LoadSS,24/03/2023 10:17:00,t8,,x,3012,Running Example
+9,e10,Seal,24/03/2023 10:20:00,t9,b1,,3012,Running Example
+10,e11,Fill,24/03/2023 10:22:00,t10,,,3012,Running Example
+11,e12,UnloadFS,24/03/2023 10:23:00,t11,,z,3012,Running Example
+12,e13,UnloadSS,24/03/2023 10:24:00,t12,,x,3012,Running Example
+13,e14,LoadSS,24/03/2023 10:25:00,t13,,y,3012,Running Example
+14,e15,Seal,24/03/2023 10:28:00,t14,b2,,3012,Running Example
+15,e16,UnloadSS,24/03/2023 10:32:00,t15,,y,3012,Running Example
+16,e17,LoadSS,24/03/2023 10:33:00,t16,,z,3012,Running Example
+17,e18,Seal,24/03/2023 10:38:00,t17,b3,,3012,Running Example
+18,e19,UnloadSS,24/03/2023 10:43:00,t18,,z,3012,Running Example
+19,e20,UnloadAL,24/03/2023 10:45:00,t19,,,3012,Running Example

@@ -1,0 +1,9 @@
+label,entityType,activity
+load,Box,LoadFS
+unload,Box,UnloadFS
+load,Box,LoadSS
+unload,Box,UnloadSS
+load,Box,LoadAL
+unload,Box,UnloadAL
+acts_on,Box,Fill
+acts_on,Box,Seal
